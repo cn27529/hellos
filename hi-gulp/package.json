@@ -1,0 +1,22 @@
+{
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cn27529/hellos/hi-gulp.git"
+  },
+  "name": "hi-gulp",
+  "version": "1.0.0",
+  "description": "玩玩gulp and gulp-webserver\r 測試用的",
+  "main": "gulpfile.js", 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {},
+  "author": "cn27529",
+  "license": "ISC"
+}

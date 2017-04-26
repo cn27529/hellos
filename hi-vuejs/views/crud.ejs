@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vue crud</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div id="body" class="container">
+
+        <h2 id="title-app">{{message}}</h2>
+
+        <div id="link-app">
+            <div class="well">
+                <input v-model="message" />
+                <input v-model="url" />
+                <button type="button" class="btn btn-primary" @click="add_row">Add</button>
+            </div>
+            <!--<ul class="list-group">
+                <li class="list-group-item" v-for="(item, idx) in data">
+                    <span>{{idx}}</span>
+                    <a v-if="item.newopen" v-bind:href="item.url" target="_blank">{{item.message}}</a>
+                    <a v-else v-bind:href="item.url" target="_self">{{item.message}}</a>
+                    <span style="margin-left:300px;">
+                    <button type="button" class="btn btn-primary" @click="del_row">Delete</button>
+                        </span>
+                </li>
+            </ul>-->
+
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="info">
+                        <th>Index</th>
+                        <th>Message</th>
+                        <th>URL</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="active" v-for="(item, idx) in data">
+                        <td>{{idx}}</td>
+                        <td>{{item.message}}</td>
+                        <td>{{item.url}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" @click="del_row">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <script>
+        //清單
+        var list_data = {
+            message: '',
+            url: 'http://',
+            data: [
+                { newopen: true, message: 'JIRA', url: 'http://jira/browse/WMTWNOR-4245' },
+                { newopen: true, message: 'How-to-test-it.docx', url: 'How-to-test-it.docx' },
+                { newopen: true, message: 'Deploy-info.docx', url: 'Deploy-info.docx' }
+            ]
+        };
+        var app = new Vue({
+            el: '#link-app',
+            data: list_data,
+            methods: {
+                add_row: function () {
+                    this.data.push({
+                        newopen: true,
+                        message: this.message,
+                        url: this.url
+                    });
+                    this.message = '';
+                    this.url = 'http://';
+                },
+                del_row: function () {
+                }
+            }
+        });
+
+        //標題
+        var title_data = {
+            message: 'Hello dev'
+        };
+        var app2 = new Vue({
+            el: '#title-app',
+            data: title_data
+        });
+    </script>
+</body>
+
+</html>

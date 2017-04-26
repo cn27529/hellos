@@ -1,0 +1,11 @@
+# 開了一支新的 branch 叫做 cat
+
+git branch cat
+
+# 查看所有branch
+
+git branch
+
+# 切換到cat 的branch
+
+git checkout cat

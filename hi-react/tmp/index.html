@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no, minimal-ui">
+	<title>test123</title>
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="stylesheet" href="css/vendor.css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/common.css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/main.css" media="screen" charset="utf-8">
+	<!--<style>
+			.exampleTTT-enter {
+				opacity: 0.01;
+			}
+
+			.exampleTTT-enter.exampleTTT-enter-active {
+				opacity: 1;
+				transition: opacity 5000ms ease-in;
+			}
+
+			.exampleTTT-leave {
+				opacity: 1;
+			}
+
+			.exampleTTT-leave.exampleTTT-leave-active {
+				opacity: 0.01;
+				transition: opacity 3000ms ease-in;
+			}
+		</style>-->
+	<script>
+		window._netwHost = 'http://localhost:62608';
+		window._netwCookieDomain = '';
+		window._netwImageDM = 'http://negcdn.azureedge.net/wwwtest';
+		window._netwImageSSLDM = 'https://negcdn.azureedge.net/wwwtest';
+		window._netwDM = 'http://localhost:62608';
+		window._netwSSLDM = 'http://localhost:62608';
+		window._netwWebURL = 'http://localhost:3000';
+	</script>
+</head>
+
+<body>
+	<div id="mask"></div>
+	<div id="popupBox"></div>
+	<div id="mainMenu"></div>
+	<div class="history"></div>
+	<div id="wholeBanner" class="wholeBanner"></div>
+	<div id="header">
+		<div class="header">
+			<div class="navs">
+				<div class="btn btnMainMenu"></div>
+				<div class="btn btnGroup btnSearch">search</div>
+				<h1>LOGO</h1>
+				<div class="btn btnGroup btnAccount">
+					Account
+				</div>
+				<div class="btn btnGroup btnShop">
+					shopCart
+					<span class="nums">0</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="content" class="content">
+		<div style="height: 400px"></div>
+	</div>
+	<div id="footer" class="footer">
+		<ul>
+			<li>
+				<a class="Fb F01" href="">
+					<span>粉絲團</span>
+				</a>
+			</li>
+			<li>
+				<a class="AboutUs F02" href="">
+					<span>關於新蛋</span>
+				</a>
+			</li>
+			<li>
+				<a class="FAQ F03" href="">
+					<span>服務說明</span>
+				</a>
+			</li>
+			<li>
+				<a class="Member" href="">
+					<span>會員權益</span>
+				</a>
+			</li>
+			<li>
+				<a class="Desktop" href="">
+					<span>桌機版</span>
+				</a>
+			</li>
+		</ul>
+		<div class="footerlogo">
+			<span></span>
+			<h1>台灣新蛋網股份有限公司</h1>
+			<p>地址 : 台北市民生東路三段133號14樓
+				<br>客服電話：02-8006-8010</p>
+			<p>All right reserved @ 2015 Newegg.com.tw</p>
+		</div>
+	</div>
+	<!--these four react js Loading order can't be change-->
+	<!-- <script src="https://fb.me/react-15.1.0.min.js" charset="utf-8"></script>
+	<script src="https://fb.me/react-with-addons-15.1.0.min.js" charset="utf-8"></script>
+	<script src="https://fb.me/react-dom-15.1.0.min.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flux/2.1.1/Flux.min.js" charset="utf-8"></script> -->
+	<script src="https://fb.me/react-15.1.0.js" charset="utf-8"></script>
+	<script src="https://fb.me/react-with-addons-15.1.0.js" charset="utf-8"></script>
+	<script src="https://fb.me/react-dom-15.1.0.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flux/2.1.1/Flux.js" charset="utf-8"></script>
+	<!--jQuery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<!--nemReact-->
+	<script src="/Scripts/netw.react/nemModules.js"></script>
+	<script src="/Scripts/netw.react/nemConfig.js"></script>
+	<script src="/Scripts/netw.react/nemLib.js"></script>
+	<script src="/Scripts/netw.react/nemPath.js"></script>
+	<script src="/Scripts/netw.react/commonLib.js"></script>
+	<script src="/Scripts/netw.react/common.js"></script>
+	<!--Banner Tab-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js" charset="utf-8"></script>
+	<script>
+
+	//手機首頁輪播
+	var _mainFcousLists = [{"id":5110,"name":"","link":"/Category?CategoryID=2811","imgUrl":"/pic/device/slider/1.jpg"},{"id":5111,"name":"","link":"/Category?CategoryID=2811","imgUrl":"/pic/device/slider/2.jpg"},{"id":5112,"name":"","link":"/Category?CategoryID=2811","imgUrl":"/pic/device/slider/3.jpg"},{"id":5113,"name":"","link":"/Category?CategoryID=2811","imgUrl":"/pic/device/slider/4.jpg"},{"id":5114,"name":"","link":"/Category?CategoryID=2811","imgUrl":"/pic/device/slider/5.jpg"},{"id":5115,"name":"","link":"/Category?CategoryID=2811","imgUrl":"/pic/device/slider/6.jpg"}];
+	//生活提案
+	var _lifeProjectData = [{"tabTitle":"旅途","sub":{"id":5118,"color":null,"link":"/Category?CategoryID=1794","imgUrl":"/pic/device/life/41.jpg","desc":"Flonal","desc2":"米其林三星主廚見證礦石鍋"}},{"tabTitle":"飲食","sub":{"id":5119,"color":null,"link":"/Category?CategoryID=3432","imgUrl":"/pic/device/life/42.jpg","desc":"Comfort Station","desc2":"純手工打造頂級骨瓷"}},{"tabTitle":"文化","sub":{"id":5120,"color":null,"link":"/Category?CategoryID=3749","imgUrl":"/pic/device/life/43.jpg","desc":"柳宗理","desc2":"貼近生活的手感設計"}},{"tabTitle":"關懷","sub":{"id":5121,"color":null,"link":"/Category?CategoryID=1199","imgUrl":"/pic/device/life/44.jpg","desc":"Le Creuset","desc2":"廚房裡的傳家之寶"}}];
+	//美國直購
+	var _shopUsData = [{"id":5117,"name":"","link":"/store?storeId=737","imgUrl":"/pic/device/shopus/22.jpg"},{"id":5116,"name":"","link":"/store?storeId=737","imgUrl":"/pic/device/shopus/21.jpg"}];
+	//全館分類
+	var _catesMapData = [{"id":5017,"name":"生活家電","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon07.jpg"},{"id":5018,"name":"設計風尚","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon01.jpg"},{"id":5019,"name":"國際名品","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon02.jpg"},{"id":5020,"name":"美妝保養","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon03.jpg"},{"id":5021,"name":"戶外休旅","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon05.jpg"},{"id":5022,"name":"運動健身","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon04.jpg"},{"id":5023,"name":"電腦週邊","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon09.jpg"},{"id":5024,"name":"數位３Ｃ","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon10.jpg"},{"id":5025,"name":"居家用品","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon08.jpg"},{"id":5026,"name":"親子寵物","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon06.jpg"},{"id":5027,"name":"保健養生","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon12.jpg"},{"id":5028,"name":"樂活食尚","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon11.jpg"},{"id":5029,"name":"美國新蛋直購","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon13.jpg"},{"id":5030,"name":"世界城市好好逛\r\n","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon15.jpg"},{"id":5031,"name":"尋找禮品","link":"/Category?CategoryID=2397","imgUrl":"/pic/device/cates_icon/cates_Icon14.jpg"}];
+
+		nemReact.initJS([{
+			key: 'homeLib'
+		}, {
+			key: 'home',
+			cb: function() {
+				nemReact.require('home', 'react').init();
+			}
+		}]);
+
+	</script>
+</body>
+
+</html>

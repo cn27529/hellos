@@ -1,0 +1,20 @@
+ul{
+  margin: 0;
+  li{
+    padding-left: 10px;
+    &.top{
+      padding-left: 0px;
+    }
+  }
+}
+
+.red-color{
+  color: red;
+}
+a{
+  font-weight: bold;
+  @extend .red-color;
+}
+.error{
+  @extend .red-color;
+}

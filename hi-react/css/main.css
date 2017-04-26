@@ -1,0 +1,11 @@
+body {
+  font-family: cursive; }
+  body .header {
+    margin: 10px; }
+
+.foot {
+  margin: 10px; }
+  .foot p {
+    text-align: center; }
+  .foot .content {
+    color: inherit; }

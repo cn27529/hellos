@@ -1,0 +1,12 @@
+ul {
+  margin: 0; }
+  ul li {
+    padding-left: 10px; }
+    ul li.top {
+      padding-left: 0px; }
+
+.red-color, a, .error {
+  color: red; }
+
+a {
+  font-weight: bold; }

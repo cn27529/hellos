@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no, minimal-ui">
+	<title>test123</title>
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="stylesheet" href="css/vendor.css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/common.css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/main.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="css/category.css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/searchResults.css" media="screen" charset="utf-8">
+	<!--<style>
+			.exampleTTT-enter {
+				opacity: 0.01;
+			}
+
+			.exampleTTT-enter.exampleTTT-enter-active {
+				opacity: 1;
+				transition: opacity 5000ms ease-in;
+			}
+
+			.exampleTTT-leave {
+				opacity: 1;
+			}
+
+			.exampleTTT-leave.exampleTTT-leave-active {
+				opacity: 0.01;
+				transition: opacity 3000ms ease-in;
+			}
+		</style>-->
+	<script>
+	window._netwHost = 'http://localhost:62608';
+	window._netwCookieDomain = '';
+	window._netwImageDM = 'https://negcdn.azureedge.net/www';
+	window._netwImageSSLDM = 'https://negcdn.azureedge.net/www';
+	window._netwDM = 'http://localhost:62608';
+	window._netwSSLDM = 'http://localhost:62608';
+	window._netwWebURL = 'http://localhost:3000';
+	</script>
+</head>
+
+<body>
+	<div id="mask"></div>
+	<div id="mainMenu"></div>
+	<div class="history"></div>
+	<div id="wholeBanner" class="wholeBanner"></div>
+	<div id="header">
+		<div class="header">
+			<div class="navs">
+				<div class="btn btnMainMenu"></div>
+				<div class="btn btnGroup btnSearch">search</div>
+				<h1>LOGO</h1>
+				<div class="btn btnGroup btnAccount">
+					Account
+				</div>
+				<div class="btn btnGroup btnShop">
+					shopCart
+					<span class="nums">0</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="content" class="content">
+	</div>
+	<div id="footer" class="footer">
+		<ul>
+			<li>
+				<a class="Fb F01" href="">
+					<span>粉絲團</span>
+				</a>
+			</li>
+			<li>
+				<a class="AboutUs F02" href="">
+					<span>關於新蛋</span>
+				</a>
+			</li>
+			<li>
+				<a class="FAQ F03" href="">
+					<span>服務說明</span>
+				</a>
+			</li>
+			<li>
+				<a class="Member" href="">
+					<span>會員權益</span>
+				</a>
+			</li>
+			<li>
+				<a class="Desktop" href="">
+					<span>桌機版</span>
+				</a>
+			</li>
+		</ul>
+		<div class="footerlogo">
+			<span></span>
+			<h1>台灣新蛋網股份有限公司</h1>
+			<p>地址 : 台北市民生東路三段133號14樓
+				<br>客服電話：02-8006-8010</p>
+			<p>All right reserved @ 2015 Newegg.com.tw</p>
+		</div>
+	</div>
+	<!--these four react js Loading order can't be change-->
+	<!-- <script src="https://fb.me/react-15.1.0.min.js" charset="utf-8"></script>
+	<script src="https://fb.me/react-with-addons-15.1.0.min.js" charset="utf-8"></script>
+	<script src="https://fb.me/react-dom-15.1.0.min.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flux/2.1.1/Flux.min.js" charset="utf-8"></script> -->
+	<script src="https://fb.me/react-15.1.0.js" charset="utf-8"></script>
+	<script src="https://fb.me/react-with-addons-15.1.0.js" charset="utf-8"></script>
+	<script src="https://fb.me/react-dom-15.1.0.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flux/2.1.1/Flux.js" charset="utf-8"></script>
+	<!--jQuery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<!--nemReact-->
+	<script src="/Scripts/netw.react/nemModules.js"></script>
+	<script src="/Scripts/netw.react/nemConfig.js"></script>
+	<script src="/Scripts/netw.react/nemLib.js"></script>
+	<script src="/Scripts/netw.react/nemPath.js"></script>
+	<script src="/Scripts/netw.react/commonLib.js"></script>
+	<script src="/Scripts/netw.react/common.js"></script>
+	<!--Banner Tab-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js" charset="utf-8"></script>
+	<script>
+		nemReact.initJS([{
+			key: 'searchResultsLib'
+		}, {
+			key: 'searchResults',
+			cb: function() {
+				nemReact.require('searchResults', 'react').init();
+			}
+		}]);
+	</script>
+</body>
+
+</html>

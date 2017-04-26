@@ -1,0 +1,18 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "./db.vuejs.sqlite"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": ":memory:"
+  },
+  "production": {
+    "username": "DiaryUser",
+    "password": "3edc#EDC@pwd",
+    "database": "mycloudlife-test",
+    "host": "107.180.56.151",
+    "dialect": "mysql"
+  }
+
+}
