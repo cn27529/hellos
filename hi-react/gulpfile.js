@@ -41,9 +41,6 @@ gulp.task('browser', function() {
     });
 });
 
-
-
-
 // 定義名稱為 scripts 的 gulp 工作
 gulp.task('scripts', function () {
     console.log('指定要處理的原始 JavaScript 檔案目錄')
