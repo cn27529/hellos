@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Product App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+    <style>
+        .tab-content {
+            height: 350px;
+            border: 1px solid #cccccc;
+            padding: inherit;
+        }
+
+        .nav-tabs {
+            border-bottom: 0px solid #cccccc;
+        }
+
+        .thead-inverse {
+            background-color: #000000;
+            color: #000000;
+            letter-spacing: normal;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <div class="container">
+
+        <!-- Content here -->
+        <h1></h1>
+
+        <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="#home">All Products</a></li>
+            <li><a data-toggle="tab" href="#menu1">Find Search</a></li>
+            <li class="active"><a data-toggle="tab" href="#menu2">On AngularJS</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade">
+                <h3>All Products</h3>
+                <div class="form-group">
+                    <ul id="products" class="list-group" />
+                    </ul>
+                </div>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <h3>Find Search</h3>
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <label for="prodId">Search by ID</label>
+                        <input class="form-control" id="prodId" type="text">
+                        <button type="button" class="btn btn-default" onclick="find();">Search</button>
+                    </div>
+                </form>
+                <!--<h3>Find Result</h3>-->
+                <table class="table table-bordered">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                </table>
+                <ul id="product" class="list-group" />
+                </ul>
+
+            </div>
+
+
+            <div id="menu2" class="tab-pane fade in active">
+                <h3>Bind data on AngularJS</h3>
+                <div ng-app="myApp" ng-controller="myCtrl">
+                    <p>
+                        Click
+                            <button type="button" class="btn btn-default" ng-click="here_click($event)">here</button>
+                        to load data. 
+                        orHide the DIV:
+                        <input type="checkbox" ng-model="myCheck">
+                    </p>
+
+                    <table class="table table-bordered">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>加<input type="number" ng-model="sPrice" value="{{sPrice}}" style="width:70px; text-align:center; margin:5px;" />%服務費</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-hide="myCheck">
+                            <tr ng-repeat="x in list_data">
+                                <td>{{ x.Id }}</td>
+                                <td>{{ x.Name }}</td>
+                                <td>{{ x.Category }}</td>
+                                <td>
+                                    <div class="col-xs-4">
+                                        <input type="number" class="form-control" ng-model="x.Price" value="{{ x.Price }}" />
+                                    </div>
+                                </td>
+                                <td>{{((x.Price/100)*sPrice)+x.Price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">Option 1</label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">Option 2</label>
+                    </div>
+                    <div class="checkbox disabled">
+                        <label>
+                            <input type="checkbox" value="" disabled>Option 3</label>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+</body>
+
+<script>
+
+    var data = {
+        "records": [
+        { "Id": 2, "Name": "Tomato Soup", "Category": "Groceries", "Price": 500 },
+        { "Id": 4, "Name": "Yo-yo", "Category": "Toys", "Price": 3.75 },
+        { "Id": 6, "Name": "Hammer", "Category": "Hardware", "Price": 16.99 },
+        { "Id": 8, "Name": "I am Product", "Category": "Toys", "Price": 99 }
+        ]
+    };
+
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function ($scope, $http) {
+
+        //$http.get("http://www.w3schools.com/angular/customers.php")
+
+        var url = "http://localhost:60239/data.js";
+
+        $scope.list_data = data.records;
+
+        $scope.sPrice = 10;
+
+        $scope.here_click = function (e) {
+
+            //    $http.get(url)
+            //.then(function (response) { $scope.list_data = response.data.records; });
+            //    console.log(myE.html());
+
+            //$scope.list_data = data.records;
+
+
+            $http({
+                method: "GET",
+                url: url
+            }).then(function mySucces(response) {
+                //$scope.list_data = response.data.records;
+
+
+
+                console.log(response.data);
+                console.log(response.status);
+                console.log(response.statustext);
+
+            }, function myError(response) {
+                //$scope.myWelcome = response.statusText;
+                alert(response.statusText);
+            });
+
+        }
+
+    });
+
+
+    var uri = 'api/Test';
+
+    $(document).ready(function () {
+
+        get_data2();
+
+    });
+
+    function formatItem(item) {
+        return '名稱 ' + item.Name + ', NT$ ' + item.Price;
+        //alert(item.Name);
+    }
+
+    function get_data2() {
+
+        //var json_data = '';
+
+        var my_uri = 'http://localhost:60239/data.js';
+        var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+
+        //my_uri = 'http://jsbin.com/xateqojese/edit?js';
+
+        $.getJSON(my_uri, {
+            tags: "mount rainier",
+            tagmode: "any",
+            format: "json"
+        })
+          .done(function (data) {
+              $.each(data, function (i, item) {
+                  //alert(i);
+                  $('<li>', { text: formatItem(item), addClass: 'list-group-item' }).appendTo($('#products'));
+                  //$("<img>").attr("src", item.media.m).appendTo("#images");
+                  //$('<img>', { src: item.media.m, addClass: 'list-group-item' }).appendTo($('#products'));
+              });
+
+              //alert(data);
+              console.log(data);
+
+          });
+
+        //return json_data;
+
+
+    }
+
+
+    var json_data = '';
+
+    function get_data() {
+
+        //var json_data = '';
+
+        var my_uri = 'http://localhost:60239/data.js';
+        var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+
+        //my_uri = 'http://jsbin.com/xateqojese/edit?js';
+
+        $.getJSON(my_uri, {
+            tags: "mount rainier",
+            tagmode: "any",
+            format: "json"
+        })
+          .done(function (data) {
+              $.each(data, function (i, item) {
+                  //alert(i);
+                  $('<li>', { text: formatItem(item), addClass: 'list-group-item' }).appendTo($('#products'));
+                  //$("<img>").attr("src", item.media.m).appendTo("#images");
+                  //$('<img>', { src: item.media.m, addClass: 'list-group-item' }).appendTo($('#products'));
+              });
+
+              //alert(data);
+              console.log(data);
+
+          });
+
+        //return json_data;
+
+
+    }
+
+    function find() {
+        var id = $('#prodId').val();
+        $.getJSON(uri + '/' + id)
+            .done(function (data) {
+                //$('#product').text(formatItem(data));
+                //console.log(data);
+                $('<li>', { text: formatItem(data), addClass: 'list-group-item' }).appendTo($('#product'));
+            })
+            .fail(function (jqXHR, textStatus, err) {
+                $('#product').text('Error: ' + err);
+            });
+    }
+
+    var mockDataForThisTest = "json=" + encodeURI(JSON.stringify([
+            {
+                id: 1,
+                firstName: "Peter",
+                lastName: "Jhons"
+            },
+        {
+            id: 2,
+            firstName: "David",
+            lastName: "Bowie"
+        }
+    ]));
+
+
+
+
+</script>
+
+</html>

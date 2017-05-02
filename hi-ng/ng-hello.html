@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>hello kitty</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+    <style>
+        .tab-content {
+            /*height: 350px;*/
+            border: 1px solid #cccccc;
+            padding: inherit;
+        }
+
+        .nav-tabs {
+            border-bottom: 0px solid #cccccc;
+        }
+
+        /*.thead-inverse {
+            background-color: #000000;
+            color: #000000;
+            letter-spacing: normal;
+        }*/
+
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        /*table tr:nth-child(even) {
+            background-color: #ffffff;
+        }*/
+
+        table th {
+            text-align: center;
+            text-align-last: auto;
+        }
+
+        .img-circle {
+            width: 130px;
+            height: 130px;
+        }
+
+        .row {
+            width: 80%;
+            height: 230px;
+        }
+
+        img {
+            display: block;
+        }
+    </style>
+
+</head>
+<body ng-app="myApp">
+    <div class="container">
+        <h2>hello kitty</h2>
+        <div class="well">
+            <h2>TIDE File Generation</h2>
+        </div>
+        <div ng-controller="myCtrl">
+
+            <div class="row">
+                <div class="col-sm-4 text-center">
+
+                    <!--<span class="badge">14</span>-->
+                    <a href="#" class="thumbnail">
+                        <img src="images/goofy.png" class="img-circle" alt="goofy">
+                    </a>
+                    <button type="button" class="btn btn-primary"></span>可購數量 <span class="badge">23</span></button>
+                    <button type="button" class="btn btn-primary">
+                        Add my cart<span class="glyphicon glyphicon-shopping-cart"></span>
+                    </button>
+
+                </div>
+                <div class="col-sm-4 text-center">
+                    <a href="#" class="thumbnail">
+                        <img src="images/hellokitty.png" class="img-circle" alt="hellokitty">
+                    </a>
+                    <button type="button" class="btn btn-primary"></span>可購數量 <span class="badge">23</span></button>
+                    <button type="button" class="btn btn-primary">
+                        Add my cart<span class="glyphicon glyphicon-shopping-cart"></span>
+                    </button>
+                </div>
+
+                <div class="col-sm-4 text-center">
+                    <a href="#" class="thumbnail">
+                        <img src="images/mickeymouse.png" class="img-circle" alt="mickeymouse">
+                    </a>
+                    <button type="button" class="btn btn-primary"></span>可購數量 <span class="badge">23</span></button>
+                    <button type="button" class="btn btn-primary">
+                        Add my cart<span class="glyphicon glyphicon-shopping-cart"></span>
+                    </button>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="enter1"></label>
+                <input type="text" class="form-control" ng-model="hello" id="enter1" placeholder="填入一些東西吧" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">電郵</label>
+                <div class="col-sm-5">
+                    <p class="form-control-static">{{hello || '尚未填寫'}}</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" ng-model="Select1" ng-options="m.Name for m in Model">
+                    <option value="">-- 請選擇 --</option>
+                </select>
+                {{Select1}}
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" ng-model="Select2" ng-options="(m.Category + ' - ' + m.Name) for m in Model">
+                    <option value="">-- 請選擇 --</option>
+                </select>
+                {{Select2}}
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" ng-model="Select3" ng-options="(m.Category + ' - ' + m.Name) group by m.Category for m in Model">
+                    <option value="">-- 請選擇 --</option>
+                </select>
+                {{Select3}}
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" ng-model="Select4" ng-options="m.Id as m.Name for m in Model">
+                    <option value="">-- 請選擇 --</option>
+                </select>
+                {{Select4}}
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    var data = {
+        "records": [
+        { "Id": 2, "Name": "Tomato Soup", "Category": "Groceries", "Price": 500 },
+        { "Id": 4, "Name": "Yo-yo", "Category": "Toys", "Price": 3.75 },
+        { "Id": 6, "Name": "Hammer", "Category": "Hardware", "Price": 16.99 },
+        { "Id": 8, "Name": "I am Product", "Category": "Toys", "Price": 99 }
+        ]
+    };
+
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+        //$scope.hello = '111';
+
+        $scope.Model = data.records;
+
+    });
+
+</script>
+
+</html>
