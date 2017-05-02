@@ -1,0 +1,20 @@
+{
+  "name": "hello-cordova",
+  "version": "1.0.0",
+  "description": "hello corvoda / phonegap 123",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cn27529/hello-cordova.git"
+  },
+  "author": "cn27529@hotmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cn27529/hello-cordova/issues"
+  },
+  "homepage": "https://github.com/cn27529/hello-cordova#readme"
+}
+
