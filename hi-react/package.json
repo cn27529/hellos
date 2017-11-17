@@ -5,11 +5,13 @@
   "main": "gulpfile.js",
   "dependencies": {
     "babel-cli": "^6.10.1",
-    "babel-preset-react": "^6.11.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^8.0.0",
     "compass": "^0.1.1",
     "gulp": "^3.9.1",
-    "gulp-compass": "^2.1.0",
-    "react": "^15.2.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "sass": "^0.5.0"
   },
   "devDependencies": {
@@ -17,7 +19,11 @@
     "gulp-config": "^0.3.0",
     "gulp-livereload": "^3.8.1",
     "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.1.0"
+    "gulp-plumber": "^1.1.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-compass": "^2.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,5 +34,4 @@
   },
   "author": "cn27529",
   "license": "ISC"
-  
 }

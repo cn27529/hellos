@@ -9,27 +9,27 @@ var gulpLivereload = require('gulp-livereload') //當 HTML, CSS 或 JavaScript �
 var gulpNotify = require("gulp-notify")  // 載入 gulp-notify 處理通知
 var browserSync = require('browser-sync').create(); //瀏覽器同步檢視
 
-// 建立預設 gulp task
-// gulp.task('default', function () {
-//     console.log('hi~hi~hi~~~');
-//     console.log('Hello Gulp Default Task');
-// });
+//建立預設 gulp task
+gulp.task('default', function () {
+    console.log('hi~hi~hi~~~');
+    console.log('Hello Gulp Default Task');
+});
 
-//gulp.task('default', ['other', 'scripts', 'styles','image','watch']);
+gulp.task('default', ['other', 'scripts', 'styles','image','watch']);
 //gulp.task('default', ['other', 'scripts', 'styles','image'])
 
 
-// gulp.task('default', function(){
-//   console.log('讀取config.json設定檔');
-//   console.log(config.desktop.dest);
-// });
+gulp.task('default', function(){
+  console.log('讀取config.json設定檔');
+  console.log(config.desktop.dest);
+});
 
 
 
-// // 定義名稱為 other 的 gulp 工作
-// gulp.task('other', function () {
-//     console.log('執行Gulp的other任務')
-// });
+// 定義名稱為 other 的 gulp 工作
+gulp.task('other', function () {
+    console.log('執行Gulp的other任務')
+});
 
 
 // Static server
