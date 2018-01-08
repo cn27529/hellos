@@ -1,0 +1,9 @@
+C:\Users\shiu7\Desktop\WebApiDemo\WebApiDemo\bin\Release\netcoreapp1.1\WebApiDemo.deps.json
+C:\Users\shiu7\Desktop\WebApiDemo\WebApiDemo\bin\Release\netcoreapp1.1\WebApiDemo.runtimeconfig.json
+C:\Users\shiu7\Desktop\WebApiDemo\WebApiDemo\bin\Release\netcoreapp1.1\WebApiDemo.runtimeconfig.dev.json
+C:\Users\shiu7\Desktop\WebApiDemo\WebApiDemo\bin\Release\netcoreapp1.1\WebApiDemo.dll
+C:\Users\shiu7\Desktop\WebApiDemo\WebApiDemo\bin\Release\netcoreapp1.1\WebApiDemo.pdb
+C:\Users\shiu7\Desktop\WebApiDemo\WebApiDemo\obj\Release\netcoreapp1.1\WebApiDemo.csprojResolveAssemblyReference.cache
+C:\Users\shiu7\Desktop\WebApiDemo\WebApiDemo\obj\Release\netcoreapp1.1\WebApiDemo.AssemblyInfo.cs
+C:\Users\shiu7\Desktop\WebApiDemo\WebApiDemo\obj\Release\netcoreapp1.1\WebApiDemo.dll
+C:\Users\shiu7\Desktop\WebApiDemo\WebApiDemo\obj\Release\netcoreapp1.1\WebApiDemo.pdb

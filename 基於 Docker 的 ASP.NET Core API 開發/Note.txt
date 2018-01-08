@@ -1,0 +1,40 @@
+Dockerfile：
+FROM microsoft/dotnet:latest
+COPY PublishOutput /root
+WORKDIR /root
+EXPOSE 5555/tcp
+ENV ASPNETCORE_URLS http://*:5555
+ENTRYPOINT dotnet /root/MyWebAPI.dll
+
+Docker 建立 Image
+docker build -t webapidemo .
+
+Docker 使用 Image 建立 Container：
+docker run -d -p 8888:5555 webapidemo
+
+Linux 查詢 IP：
+ifconfig
+
+http://localhost:8888/api/values
+
+http://192.168.126.128:8888/api/values
+
+關於取得 Base Image 的幾種方式：
+	1. 從 Docker 官方儲存庫取得
+		○ Command：
+		docker pull IMAGENAME[:TAG]
+		○ Dockerfile：
+		FROM IMAGENAME[:TAG]
+	2. 從私有的儲存庫取得
+		○ Command：The following command pulls the testing/test-image image from a local registry listening on port 5000 (myregistry.local:5000)
+		docker pull myregistry.local:5000/testing/test-image
+		○ Dockerfile：
+		FROM myregistry.local:5000/testing/test-image
+	3. 將已取得的 Base Image 保存為 *.tar 檔，然後在其他 Docker Server 匯入
+		○ Command：
+		匯出：
+		docker save -o webdemou12.tar webdemo:u12
+		docker save --output busybox.tar busybox
+		匯入：
+		docker load --input webdemou12.tar
+		docker load --input fedora.tar
