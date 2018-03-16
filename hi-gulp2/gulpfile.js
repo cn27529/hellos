@@ -49,15 +49,15 @@ gulp.task('js', function (cb) {
 //         .pipe(clean());
 // });
 
-// gulp.task('rebuild', ['css', 'js'], function () {
-//     console.log('rebuilding....');
-// });
+gulp.task('rebuild', ['css', 'js'], function () {
+    console.log('rebuilding....');
+});
 
-// gulp.task('cleanall', function () {
-//     var clean_js = app.dist + '/scripts';
-//     var clean_css = app.dist + '/css';
-//     return gulp.src([clean_js, clean_css], {
-//             read: false
-//         })
-//         .pipe(clean());
-// });
+gulp.task('cleanall', function () {
+    var js = app.dist + '/scripts';
+    var css = app.dist + '/css';
+    return gulp.src([js, css], {
+            read: false
+        })
+        .pipe(clean());
+});
