@@ -13,9 +13,7 @@ var app = {
     scss: 'app/scss/**/*.scss'
 }
 
-var gulpConfig = {
-
-}
+var gulpConfig = {}
 
 gulp.task('scss', function () {
     gulp.src(app.scss) // 指定要處理的 Scss 檔案目錄
@@ -43,11 +41,18 @@ gulp.task('js', function (cb) {
     ], cb);
 });
 
-// gulp.task('clean-css', function () {     var clean_path = app.dist + '/css';
-//    return gulp.src(clean_path, {             read: false         })
-// .pipe(clean()); }); gulp.task('clean-scripts', function () {     var
-// clean_path = app.dist + '/scripts';     return gulp.src(clean_path, {
-//     read: false         })         .pipe(clean()); });
+// gulp.task('clean-css', function () {
+//     var clean_path = app.dist + '/css';
+//     return gulp
+//         .src(clean_path, {read: false})
+//         .pipe(clean());
+// });
+// gulp.task('clean-scripts', function () {
+//     var clean_path = app.dist + '/scripts';
+//     return gulp
+//         .src(clean_path, {read: false})
+//         .pipe(clean());
+// });
 
 gulp.task('rebuild', [
     'css', 'js'
