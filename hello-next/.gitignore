@@ -2,8 +2,7 @@ node_modules
 npm-debug.log
 *.sqlite
 .bash_profile
-build
 dist
-target
+.next
 
 
