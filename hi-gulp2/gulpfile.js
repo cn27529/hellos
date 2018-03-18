@@ -16,11 +16,22 @@ var app = {
 }
 
 var webserver = require('gulp-webserver');
+var browsersync = require('browser-sync').create();
 
-gulp.task('webserver', function () {
+// 監看工作
+gulp.task('watch', function () {
+
+    gulp.watch("app/css/*.css", ['css']); //有異動就執行task
+    gulp.watch("app/scripts/*.js", ['js']);
+    gulp.watch("app/*.html", ['html']).on('change', browsersync.reload);
+
+});
+
+gulp.task('webserver',['watch'], function () {
     gulp
-        .src('dist')
+        .src('./dist')
         .pipe(webserver({
+            fallback: 'index.html',
             livereload: true,
             directoryListing: {
                 enable: true,
