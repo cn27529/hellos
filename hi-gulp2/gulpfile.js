@@ -27,7 +27,7 @@ gulp.task('watch', function () {
 
 });
 
-gulp.task('webserver',['watch'], function () {
+gulp.task('webserver', ['watch'], function () {
     gulp
         .src('./dist')
         .pipe(webserver({
@@ -55,16 +55,15 @@ gulp.task('scss', function () {
         .pipe(gulp.dest(app.css)); // 指定編譯後的 css 檔案目錄
 });
 
-gulp.task('hello', function () {
+gulp.task('default', function () {
     console.log('hello this is my first gulp task');
 });
 
 gulp.task('css', function () {
-    var stream = gulp
+    return gulp
         .src(app.css)
         .pipe(cssminify())
         .pipe(gulp.dest(app.dist + '/css'));
-    return stream;
 });
 
 gulp.task('js', function (cb) {
@@ -87,11 +86,27 @@ gulp.task('build', [
     console.log('building....');
 });
 
+//清除dist資料
 gulp.task('cleanall', function () {
     var js = app.dist + '/scripts';
     var css = app.dist + '/css';
     var html = app.dist + '/*.html';
+    var images = app.dist + '/images';
     return gulp.src([
-        js, css, html
-    ], {read: true}).pipe(clean());
+        js, css, html, images
+    ], {
+        read: true
+    }).pipe(clean());
+
+    //console.log('cleaning....');
+
+});
+
+var runSequence = require('run-sequence');
+
+gulp.task('develop', function(done) {
+    runSequence('cleanall', function() {
+        console.log('Run something else');
+        done();
+    });
 });
