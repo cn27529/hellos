@@ -15,7 +15,8 @@ var app = {
     js: 'app/scripts/**/*.js',
     dist: 'dist',
     scss: 'app/scss/**/*.scss',
-    html: 'app/*.html'
+    html: 'app/*.html',
+    images: 'app/images/*.*'
 }
 
 // 監看工作
@@ -23,6 +24,7 @@ gulp.task('watch', function () {
 
     gulp.watch("app/css/*.css", ['css']); //有異動就執行task
     gulp.watch("app/scripts/*.js", ['js']);
+    gulp.watch("app/images/*.*", ['images']);
     gulp.watch("app/*.html", ['html']).on('change', browsersync.reload);
 
 });
@@ -40,6 +42,13 @@ gulp.task('webserver', ['watch'], function () {
             open: true,
             port: 8080
         }));
+});
+
+gulp.task('images', function () {
+    gulp
+        .src(app.images)
+        .pipe(gulp.dest(app.dist+'/images'))
+    //.pipe(connect.reload());
 });
 
 gulp.task('html', function () {
@@ -81,7 +90,7 @@ gulp.task('js', function (cb) {
 // .pipe(clean()); });
 
 gulp.task('build', [
-    'css', 'js', 'html'
+    'css', 'js', 'html','images'
 ], function () {
     console.log('building....');
 });
