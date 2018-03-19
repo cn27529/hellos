@@ -97,6 +97,7 @@ gulp.task('build', [
 
 //清除dist資料
 gulp.task('cleanall', function () {
+
     var js = app.dist + '/scripts';
     var css = app.dist + '/css';
     var html = app.dist + '/*.html';
