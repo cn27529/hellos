@@ -89,33 +89,34 @@ gulp.task('js', function (cb) {
 // '/scripts';     return gulp         .src(clean_path, {read: false})
 // .pipe(clean()); });
 
-gulp.task('build', [
-    'css', 'js', 'html','images'
-], function () {
+gulp.task('build', ['clean'], function () {
     console.log('building....');
+    gulp.start('dist');
+});
+
+gulp.task('dist', ['css', 'js', 'html','images'], function () {
+    console.log('created dist....');
 });
 
 //清除dist資料
-gulp.task('cleanall', function () {
+gulp.task('clean' , function () {
 
     var js = app.dist + '/scripts';
     var css = app.dist + '/css';
     var html = app.dist + '/*.html';
     var images = app.dist + '/images';
-    return gulp.src([
-        js, css, html, images
-    ], {
+    return gulp.src([js, css, html, images], {
         read: true
     }).pipe(clean());
 
-    //console.log('cleaning....');
+    //console.log('cleaned....');
 
 });
 
 // var runSequence = require('run-sequence');
 
 // gulp.task('develop', function(done) {
-//     runSequence('cleanall', function() {
+//     runSequence('clean', function() {
 //         console.log('Run something else');
 //         done();
 //     });
