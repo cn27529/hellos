@@ -7,7 +7,7 @@ var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 
 var webserver = require('gulp-webserver');
-var browsersync = require('browser-sync').create();
+//var browsersync = require('browser-sync').create();
 
 var app = {
     src: 'app',
