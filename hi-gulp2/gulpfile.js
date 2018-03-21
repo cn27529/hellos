@@ -22,10 +22,10 @@ var app = {
 // 監看工作
 gulp.task('watch', function () {
 
-    gulp.watch("app/css/*.css", ['css']); //有異動就執行task
-    gulp.watch("app/scripts/*.js", ['js']);
-    gulp.watch("app/images/*.*", ['images']);
-    gulp.watch("app/*.html", ['html']).on('change', browsersync.reload);
+    // gulp.watch("app/css/*.css", ['css']); //有異動就執行task
+    // gulp.watch("app/scripts/*.js", ['js']);
+    // gulp.watch("app/images/*.*", ['images']);
+    // gulp.watch("app/*.html", ['html']).on('change', browsersync.reload);
 
 });
 
@@ -112,12 +112,3 @@ gulp.task('clean' , function () {
     //console.log('cleaned....');
 
 });
-
-// var runSequence = require('run-sequence');
-
-// gulp.task('develop', function(done) {
-//     runSequence('clean', function() {
-//         console.log('Run something else');
-//         done();
-//     });
-// });
