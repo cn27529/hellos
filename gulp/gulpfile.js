@@ -6,7 +6,7 @@ gulp.task('connect', function () {
     root: 'app',
     port: 3000,
     livereload: true
-  });  
+  });
 });
 
 gulp.task('html', function () {

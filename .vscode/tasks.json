@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/基於 Docker 的 ASP.NET Core API 開發/WebApiDemo/WebApiDemo/WebApiDemo.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
