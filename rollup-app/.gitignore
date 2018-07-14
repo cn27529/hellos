@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+*.sqlite
+.bash_profile
+build
+public/*.js
+public/*.map
+dist/*.js
+dist/*.map
+
+
+
+
+
